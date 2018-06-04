@@ -1,0 +1,56 @@
+<div class="row product-detail">
+        <div class="col-xs-4 item-photo">
+                         <img style="max-width:100%;" ng-src="{{viewProduct.mediumImage}}" />
+                     </div>
+                     <div class="col-xs-5" style="border:0px solid gray">
+                         <!-- Datos del vendedor y titulo del producto -->
+                         <h1>{{viewProduct.name}} </h1>    
+                         
+     
+                         <!-- Precios -->
+                         
+                         
+     
+                         <!-- Detalles especificos del producto -->
+                         <div class="section">
+                                <h3 style="margin-top:0px;">{{viewProduct.salePrice | currency}}</h3>
+                             <h6 class="title-attr" style="margin-top:15px;" ><small> Free shipping
+                                    Arrives by Friday, Jun 8</small></h6>                    
+                             <div>
+                                {{viewProduct.stock}}
+                             </div>
+                         </div>
+                         <div class="section" style="padding-bottom:5px;">
+                             <h6 class="title-attr"><small> </small></h6>                    
+                           
+                         </div>   
+                         <div class="section" style="padding-bottom:20px;">
+                             <h6 class="title-attr"><small>Qty:</small></h6>                    
+                             <div>
+                                 <div class="btn-minus"><span class="glyphicon glyphicon-minus"></span></div>
+                                 <input value="1" />
+                                 <div class="btn-plus"><span class="glyphicon glyphicon-plus"></span></div>
+                             </div>
+                         </div>                
+     
+                         <!-- Botones de compra -->
+                         <div class="section" style="padding-bottom:20px;">
+                             <button class="btn btn-success"><span style="margin-right:20px" class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to Cart</button>
+                             
+                         </div>                                        
+                     </div>                              
+     
+                     <div class="col-xs-9">
+                         <ul class="menu-items">
+                             <li class="active">About This Item</li>
+                             
+                         </ul>
+                         <div style="width:100%;border-top:1px solid silver">
+                             <p style="padding:15px;">
+                                 <small>{{viewProduct.longDescription}} </small>
+                             </p>
+                            
+                         </div>
+                     </div>		
+         </div>
+     </div>

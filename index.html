@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- sahin test-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="css/reset.css">
+    <!-- CSS reset -->
+    <link rel="stylesheet" href="css/cart.css">
+    <!-- Resource style -->
+    <link rel="stylesheet" href="css/style.css">
+    <title>TeknoSe</title>
+</head>
+
+<body ng-app='shopApp' ng-controller="HomeController">
+
+    <!--
+                <div class="form">
+                        <form ng-submit="searchCategoryKeyword(categoryKeyword)">
+                            <input type="text" ng-model="categoryKeyword">
+                            <button type="submit">Search</button>
+                        </form>
+                    </div>
+                -->
+
+    <header>
+        <div id="flipkart-navbar">
+            <div class="container">
+                <div class="row row1">
+                    <ul class="largenav pull-right">
+                        <li class="upper-links">
+                            <a class="links" href="#!/About">About</a>
+                        </li>
+                        <li class="upper-links">
+                            <a class="links" href="#!/Contact">Contact</a>
+                        </li>
+                        <li class="upper-links">
+                            <a class="links" href="#!/HelpCenter">Help Center</a>
+                        </li>
+
+                        <li class="upper-links">
+                            <a class="links" href="http://clashhacks.in/">
+                                <svg class="" width="16px" height="12px" style="overflow: visible;">
+                                    <path d="M8.037 17.546c1.487 0 2.417-.93 2.417-2.417H5.62c0 1.486.93 2.415 2.417 2.415m5.315-6.463v-2.97h-.005c-.044-3.266-1.67-5.46-4.337-5.98v-.81C9.01.622 8.436.05 7.735.05 7.033.05 6.46.624 6.46 1.325v.808c-2.667.52-4.294 2.716-4.338 5.98h-.005v2.972l-1.843 1.42v1.376h14.92v-1.375l-1.842-1.42z"
+                                        fill="#fff"></path>
+                                </svg>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="row row2">
+                    <div class="col-sm-2">
+                        <h2 style="margin:0px;">
+                            <span class="smallnav menu" onclick="openNav()">☰ TeknoSe</span>
+                        </h2>
+                        <h1 style="margin:0px;">
+
+                            <a class="links" href="#!/">
+                                <img style="height: 43px;" src="img/logo.jpg" alt="">
+                            </a>
+                        </h1>
+                    </div>
+
+                    <form class="flipkart-navbar-search smallsearch col-sm-8 col-xs-11" role="search" ng-submit="searchKeyword(keyword)">
+                        <div class="search-category">
+                            <span class="search-button"></span>
+                            <div class="show-category">
+                                <div class="single category">
+                                    <ul class="list-unstyled">
+                                        <li ng-repeat="category in resultCategories">
+                                            <a ng-click="searchCategoryId($event, keyword)" ng-attr-id="{{category.id}}" href="" title="">{{category.name}}
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <input class="flipkart-navbar-input col-xs-11" type="text" placeholder="Search" name="" ng-model="keyword">
+                        <button type="submit" class="flipkart-navbar-button col-xs-1">
+                            <svg width="15px" height="15px">
+                                <path d="M11.618 9.897l4.224 4.212c.092.09.1.23.02.312l-1.464 1.46c-.08.08-.222.072-.314-.02L9.868 11.66M6.486 10.9c-2.42 0-4.38-1.955-4.38-4.367 0-2.413 1.96-4.37 4.38-4.37s4.38 1.957 4.38 4.37c0 2.412-1.96 4.368-4.38 4.368m0-10.834C2.904.066 0 2.96 0 6.533 0 10.105 2.904 13 6.486 13s6.487-2.895 6.487-6.467c0-3.572-2.905-6.467-6.487-6.467 "></path>
+                            </svg>
+                        </button>
+                
+                </form>
+
+                <div class="cart largenav col-sm-1">
+                    <a class="cart-button" data-toggle="modal" data-target="#myModal">
+                        <svg class="cart-svg " width="16 " height="16 " viewBox="0 0 16 16 ">
+                            <path d="M15.32 2.405H4.887C3 2.405 2.46.805 2.46.805L2.257.21C2.208.085 2.083 0 1.946 0H.336C.1 0-.064.24.024.46l.644 1.945L3.11 9.767c.047.137.175.23.32.23h8.418l-.493 1.958H3.768l.002.003c-.017 0-.033-.003-.05-.003-1.06 0-1.92.86-1.92 1.92s.86 1.92 1.92 1.92c.99 0 1.805-.75 1.91-1.712l5.55.076c.12.922.91 1.636 1.867 1.636 1.04 0 1.885-.844 1.885-1.885 0-.866-.584-1.593-1.38-1.814l2.423-8.832c.12-.433-.206-.86-.655-.86 "
+                                fill="#fff "></path>
+                        </svg>
+                        <span class="item-number ">{{totalProductNumber}}</span>
+                    </a>
+                    <div class="container" style="float: right;text-align: right">
+
+                        <!-- Trigger the modal with a button -->
+
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="myModal" role="dialog">
+                            <div class="modal-dialog">
+
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Shopping Cart</h4>
+                                    </div>
+                                    <div class="modal-body">
+
+
+                                        <div class="shopping-cart">
+
+                                            <div class="column-labels">
+                                                <label class="product-image"> </label>
+                                                <label class="product-details"> </label>
+                                                <label class="product_border">Price</label>
+                                                <label class="product-quantity">Quantity</label>
+                                                <label class="product-line-price">Total</label>
+                                            </div>
+
+                                            <div class="product" ng-repeat="cartProduct in cartList track by $index">
+                                                <div class="product-image">
+                                                    <img ng-src="{{cartProduct.product.thumbnailImage}}">
+                                                </div>
+                                                <div class="product-details">
+                                                    <div class="product-title">{{cartProduct.product.name}} </div>
+
+                                                </div>
+                                                <div class="product-price">{{cartProduct.product.salePrice }}</div>
+                                                <div class="product-quantity">
+                                                    <span> {{cartProduct.productQuantity}}</span>
+
+                                                </div>
+                                                <div ng-click="removeFromCart(cartProduct)" class="product-removal">
+                                                    <button class="remove-product">
+                                                        Remove
+                                                    </button>
+                                                </div>
+                                                <div class="product-line-price">{{cartProduct.subTotalPrice()}} </div>
+                                            </div>
+
+                                            <div class="totals">
+                                                <div class="totals-item">
+                                                    <label>Grand Total</label>
+                                                    <div class="totals-value" id="cart-subtotal">{{cartTotal}} </div>
+                                                </div>
+                                                <div class="totals-item">
+                                                    <label>Tax (5%)</label>
+                                                    <div class="totals-value" id="cart-tax">{{cartTotal*0.05 | number:0}} </div>
+                                                </div>
+                                                <div class="totals-item">
+                                                    <label></label>
+                                                    <div class="totals-value" id="cart-shipping"></div>
+                                                </div>
+                                                <div class="totals-item totals-item-total">
+                                                    <label> </label>
+                                                    <div class="totals-value" id="cart-total"></div>
+                                                </div>
+                                            </div>
+
+                                            <button class="checkout">Checkout</button>
+
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="cart largenav col-sm-1 dropdown" ng-controller="SignUpController">
+                    <a class="cart-button" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-cogs"></i>Login
+                        <span class="caret"></span>
+                    </a>
+                    <li class="dropdown">
+
+                        <ul id="login-dp" class="dropdown-menu">
+                            <li>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        Login via
+                                        <div class="social-buttons">
+                                            <a ng-click="signUpWithFacebook('facebook')" class="btn btn-fb">
+                                                <i class="fa fa-facebook"></i> Facebook</a>
+                                            <a href="#" class="btn btn-tw">
+                                                <i class="fa fa-twitter"></i> Twitter</a>
+                                        </div>
+                                        or
+                                        <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+                                            <div class="form-group">
+                                                <label class="sr-only" for="exampleInputEmail2">Email address</label>
+                                                <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email address" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="sr-only" for="exampleInputPassword2">Password</label>
+                                                <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
+                                                <div class="help-block text-right">
+                                                    <a href="">Forget the password ?</a>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox"> keep me logged-in
+                                                </label>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="bottom text-center">
+                                        New here ?
+                                        <a href="#">
+                                            <b>Join Us</b>
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div id="mySidenav" class="sidenav">
+            <div class="container" style="background-color: #2874f0; padding-top: 10px;">
+                <span class="sidenav-heading">Home</span>
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+            </div>
+            <a href="http://clashhacks.in/">Link</a>
+            <a href="http://clashhacks.in/">Link</a>
+            <a href="http://clashhacks.in/">Link</a>
+            <a href="http://clashhacks.in/">Link</a>
+        </div>
+    </header>
+
+    <!--AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA-
+    <nav class="default-nav navbar navbar-default navbar-inverse " role="navigation" >
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display 
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    <img src="img/logo.jpg">
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling 
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a href="#!/About">ABOUT</a>
+                    </li>
+                    <li>
+                        <a href="#!/Contact">CONTACT</a>
+                    </li>
+                </ul>
+
+                <form class="navbar-form navbar-left" role="search" ng-submit="searchKeyword(keyword)">
+                        <div class="search-category">
+                                <span class="search-button"></span>
+                                <div class="show-category" >
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <!-- Category 
+                                                <div class="single category" >
+                                                    
+                                                    <ul class="list-unstyled">
+                                                        <li ng-repeat="category in resultCategories"> 
+                                                            <a ng-click="searchCategoryId($event, keyword)" ng-attr-id="{{category.id}}" href="" title="" >{{category.name}}
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                </div> 
+                                </div>
+                        </div>
+                    <div class="form-group">
+
+                        <input type="text" class="form-control" placeholder="Search" ng-model="keyword"> 
+                        
+                    </div>
+                    
+                    <button type="submit" class="btn btn-default">Search</button>
+                </form>
+                <!-- Divde categoryler 
+                <div >
+
+                </div>
+                <ul class="nav navbar-nav navbar-right" ng-controller="SignUpController">
+                    <div>
+                        <p>{{user.displayName}}</p>
+                    </div>
+                    <li class="dropdown">
+                        <a href class="dropdown-toggle" data-toggle="dropdown">
+                            <b>Login</b>
+                            <span class="caret"></span>
+                        </a>
+                        <ul id="login-dp" class="dropdown-menu">
+                            <li>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        Login via
+                                        <div class="social-buttons">
+                                            <a   ng-click="signUpWithFacebook('facebook')" class="btn btn-fb">
+                                                <i class="fa fa-facebook"></i> Facebook</a>
+                                            <a href="#" class="btn btn-tw">
+                                                <i class="fa fa-twitter"></i> Twitter</a>
+                                        </div>
+                                        or
+                                        <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+                                            <div class="form-group">
+                                                <label class="sr-only" for="exampleInputEmail2">Email address</label>
+                                                <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email address" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="sr-only" for="exampleInputPassword2">Password</label>
+                                                <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
+                                                <div class="help-block text-right">
+                                                    <a href="">Forget the password ?</a>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox"> keep me logged-in
+                                                </label>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="bottom text-center">
+                                        New here ?
+                                        <a href="#">
+                                            <b>Join Us</b>
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                            <div class="container" style="float: right;text-align: right">
+                                
+                                    <!-- Trigger the modal with a button 
+                                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Cart</button>
+                                  
+                                    <!-- Modal 
+                                    <div class="modal fade" id="myModal" role="dialog">
+                                      <div class="modal-dialog">
+                                      
+                                        <!-- Modal content
+                                        <div class="modal-content">
+                                          <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title">Shopping Cart</h4>
+                                          </div>
+                                          <div class="modal-body">
+                                                
+                        
+                                                <div class="shopping-cart">
+                                                
+                                                  <div class="column-labels">
+                                                    <label class="product-image"> </label>
+                                                    <label class="product-details"> </label>
+                                                    <label class="product_border">Price</label>
+                                                    <label class="product-quantity">Quantity</label>
+                                                    
+                                                    <label class="product-line-price">Total</label>
+                                                  </div>
+                                                
+                                                  <div class="product" ng-repeat="cart in cartList">
+                                                    <div class="product-image">
+                                                      <img ng-src="{{cart.thumbnailImage}}">
+                                                    </div>
+                                                    <div class="product-details">
+                                                      <div class="product-title">{{cart.name}} </div>
+                        
+                                                    </div>
+                                                    <div class="product-price">{{cart.salePrice }}</div>
+                                                    <div class="product-quantity">
+                                                      <input type="number" value="2" min="1">
+                                                    </div>
+                                                    <div class="product-removal">
+                                                      <button class="remove-product">
+                                                        Remove
+                                                      </button>
+                                                    </div>
+                                                    <div class="product-line-price">25.98</div>
+                                                  </div>
+                                                
+                                                  <div class="totals">
+                                                    <div class="totals-item">
+                                                      <label>Subtotal</label>
+                                                      <div class="totals-value" id="cart-subtotal">71.97</div>
+                                                    </div>
+                                                    <div class="totals-item">
+                                                      <label>Tax (5%)</label>
+                                                      <div class="totals-value" id="cart-tax">3.60</div>
+                                                    </div>
+                                                    <div class="totals-item">
+                                                      <label>Shipping</label>
+                                                      <div class="totals-value" id="cart-shipping">15.00</div>
+                                                    </div>
+                                                    <div class="totals-item totals-item-total">
+                                                      <label>Grand Total</label>
+                                                      <div class="totals-value" id="cart-total">90.57</div>
+                                                    </div>
+                                                  </div>
+                                                      
+                                                      <button class="checkout">Checkout</button>
+                                                
+                                                </div>
+                                            </div>
+                                          <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                          </div>
+                                        </div>
+                                        
+                                      </div>
+                                    </div>
+                                
+                                  </div>
+                                </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse 
+        </div>
+        <!-- /.container-fluid 
+        
+    </nav> -->
+
+    <div ng-view></div>
+    <div id="yukari">
+        <a href="javascript:;">
+            <img alt="Yukarı Çık" title="Yukarı Çık" id="yukari_boyut" src="img\buton.ico">
+        </a>
+    </div>
+    <!--footer-->
+    <footer class="footer1">
+        <div class="container">
+
+            <div class="row">
+                <!-- row -->
+
+                <div class="col-lg-3 col-md-3">
+                    <!-- widgets column left -->
+                    <ul class="list-unstyled clear-margins">
+                        <!-- widgets -->
+
+                        <li class="widget-container widget_nav_menu">
+                            <!-- widgets list -->
+
+                            <h1 class="title-widget">Get to Know Us</h1>
+
+                            <ul>
+                                <li>
+                                    <a href="#!/About">
+                                        <i class="fa fa-angle-double-right"></i> About Us</a>
+                                </li>
+                                <li>
+                                    <a href="#!/Contact">
+                                        <i class="fa fa-angle-double-right"></i> Contact Us</a>
+                                </li>
+                                <li>
+                                    <a href="#!/HelpCenter">
+                                        <i class="fa fa-angle-double-right"></i> Help Center</a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-angle-double-right"></i> PG Courses</a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-angle-double-right"></i> Achiever's Batch</a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-angle-double-right"></i> Regular Batch</a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-angle-double-right"></i> Test & Discussion</a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-angle-double-right"></i> Fast Track T & D</a>
+                                </li>
+                            </ul>
+
+                        </li>
+
+                    </ul>
+
+
+                </div>
+                <!-- widgets column left end -->
+
+
+
+                <div class="col-lg-3 col-md-3">
+                    <!-- widgets column left -->
+
+                    <ul class="list-unstyled clear-margins">
+                        <!-- widgets -->
+
+                        <li class="widget-container widget_nav_menu">
+                            <!-- widgets list -->
+
+                            <h1 class="title-widget">Customer Services</h1>
+
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-angle-double-right"></i> Test Series Schedule</a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-angle-double-right"></i> Postal Coaching</a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-angle-double-right"></i> PG Dr. Bhatia Books</a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-angle-double-right"></i> UG Courses</a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-angle-double-right"></i> Satellite Education</a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-angle-double-right"></i> Study Centres</a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-angle-double-right"></i> State P.G. Mocks</a>
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank">
+                                        <i class="fa fa-angle-double-right"></i> Results</a>
+                                </li>
+
+                            </ul>
+
+                        </li>
+
+                    </ul>
+
+
+                </div>
+                <!-- widgets column left end -->
+
+
+
+                <div class="col-lg-3 col-md-3">
+                    <!-- widgets column left -->
+
+                    <ul class="list-unstyled clear-margins">
+                        <!-- widgets -->
+
+                        <li class="widget-container widget_nav_menu">
+                            <!-- widgets list -->
+
+                            <h1 class="title-widget">Trade Services</h1>
+
+                            <ul>
+
+
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-angle-double-right"></i> Enquiry Form</a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-angle-double-right"></i> Online Test Series</a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-angle-double-right"></i> Grand Tests Series</a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-angle-double-right"></i> Subject Wise Test Series</a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-angle-double-right"></i> Smart Book</a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-angle-double-right"></i> Test Centres</a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-angle-double-right"></i> Admission Form</a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-angle-double-right"></i> Computer Live Test</a>
+                                </li>
+
+                            </ul>
+
+                        </li>
+
+                    </ul>
+
+
+                </div>
+                <!-- widgets column left end -->
+
+
+                <div class="col-lg-3 col-md-3">
+                    <!-- widgets column center -->
+
+
+
+                    <ul class="list-unstyled clear-margins">
+                        <!-- widgets -->
+
+                        <li class="widget-container widget_recent_news">
+                            <!-- widgets list -->
+
+                            <h1 class="title-widget">Contact Detail </h1>
+
+                            <div class="footerp">
+
+                                <h2 class="title-median">Teknose Pvt. Ltd.</h2>
+                                <p>
+                                    <b>Email id:</b>
+                                    <a href="mailto:info@teknose.com">info@teknose.com</a>
+                                </p>
+                                <p>
+                                    <b>Helpline Numbers </b>
+
+                                    <b style="color:#ffc106;">(8AM to 10PM):</b> +91-8130890090, +91-8130190010 </p>
+
+                                <p>
+                                    <b>Corp Office / Postal Address</b>
+                                </p>
+                                <p>
+                                    <b>Phone Numbers : </b>7042827160, </p>
+                                <p> 011-27568832, 9868387223</p>
+                            </div>
+
+                            <div class="social-icons">
+
+                                <ul class="nomargin">
+
+                                    <a href="https://www.facebook.com/bootsnipp">
+                                        <i class="fa fa-facebook-square fa-3x social-fb" id="social"></i>
+                                    </a>
+                                    <a href="https://twitter.com/bootsnipp">
+                                        <i class="fa fa-twitter-square fa-3x social-tw" id="social"></i>
+                                    </a>
+                                    <a href="https://plus.google.com/+Bootsnipp-page">
+                                        <i class="fa fa-google-plus-square fa-3x social-gp" id="social"></i>
+                                    </a>
+                                    <a href="mailto:bootsnipp@gmail.com">
+                                        <i class="fa fa-envelope-square fa-3x social-em" id="social"></i>
+                                    </a>
+
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--header-->
+</body>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.0.1/lodash.js" type="text/javascript"></script>
+
+<script src="https://maps.googleapis.com/maps/api/js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.10/angular.min.js"></script>
+<script src="https://code.angularjs.org/1.6.10/angular-route.js"></script>
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyCvMiAYyOCR9Y71CDZ9kOur_xj8uZwCsO8",
+        authDomain: "teknose-login.firebaseapp.com",
+        databaseURL: "https://teknose-login.firebaseio.com",
+        projectId: "teknose-login",
+        storageBucket: "",
+        messagingSenderId: "199349328664"
+    };
+    firebase.initializeApp(config);
+</script>
+<!-- AngularFire -->
+<script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+<script data-require="ui-bootstrap@*" data-semver="0.12.1" src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.1.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/core.js"></script>
+<script src="js/app.js"></script>
+<script src="js/controllers.js"></script>
+<script src="js/services.js"></script>
+
+</html>

@@ -1,0 +1,72 @@
+.lore {
+    color: rgb(214, 0, 0);
+    font: 800 350%/1.4 'Open Sans', sans-serif;
+    text-transform: uppercase;
+    font-size: 35px;
+  }
+  
+  h3::selection {
+    -webkit-text-stroke: 4px #fb8a05;
+    color: transparent;
+  }
+  
+
+  .imgc { color: red;
+    margin-right:200px;
+  }
+
+
+  .rubrik{
+    color:rgb(0, 0, 0);
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 160px;
+    font-family:"Playfair Display";
+    font-size: 40px;
+    font-weight: 900;
+    text-align: justify!important;
+  }
+
+  .rubrik2{   
+     color:rgb(0, 0, 0);
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 160px;
+    font-family:"Playfair Display";
+    font-size: 40px;
+    font-weight: 900;
+    text-align: justify!important;
+  }
+
+.about-item p {
+  font-family: serif;
+  font-size: 15px;
+  font-weight: lighter;
+  text-overflow: clip;
+text-align: justify!important;
+
+}
+
+
+.w3-large {
+  color:rgb(4, 209, 65);
+  font-family: "Times New Roman", Times, serif;
+  font-size: 30px;
+  font-weight: 900;
+  text-align: center;
+}
+
+
+
+#yukari{
+    z-index:100;    
+    position:fixed;
+    bottom:10px;    
+    right:10px;    
+    display:none   
+}
+#yukari_boyut
+{
+    width:50px;    
+    height:50px    
+}
