@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- sahin test-->
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +10,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
         crossorigin="anonymous">
+        
     <link rel="stylesheet" href="css/reset.css">
     <!-- CSS reset -->
     <link rel="stylesheet" href="css/cart.css">
@@ -91,109 +90,225 @@
                                 <path d="M11.618 9.897l4.224 4.212c.092.09.1.23.02.312l-1.464 1.46c-.08.08-.222.072-.314-.02L9.868 11.66M6.486 10.9c-2.42 0-4.38-1.955-4.38-4.367 0-2.413 1.96-4.37 4.38-4.37s4.38 1.957 4.38 4.37c0 2.412-1.96 4.368-4.38 4.368m0-10.834C2.904.066 0 2.96 0 6.533 0 10.105 2.904 13 6.486 13s6.487-2.895 6.487-6.467c0-3.572-2.905-6.467-6.487-6.467 "></path>
                             </svg>
                         </button>
-                
-                </form>
 
-                <div class="cart largenav col-sm-1">
-                    <a class="cart-button" data-toggle="modal" data-target="#myModal">
-                        <svg class="cart-svg " width="16 " height="16 " viewBox="0 0 16 16 ">
-                            <path d="M15.32 2.405H4.887C3 2.405 2.46.805 2.46.805L2.257.21C2.208.085 2.083 0 1.946 0H.336C.1 0-.064.24.024.46l.644 1.945L3.11 9.767c.047.137.175.23.32.23h8.418l-.493 1.958H3.768l.002.003c-.017 0-.033-.003-.05-.003-1.06 0-1.92.86-1.92 1.92s.86 1.92 1.92 1.92c.99 0 1.805-.75 1.91-1.712l5.55.076c.12.922.91 1.636 1.867 1.636 1.04 0 1.885-.844 1.885-1.885 0-.866-.584-1.593-1.38-1.814l2.423-8.832c.12-.433-.206-.86-.655-.86 "
-                                fill="#fff "></path>
-                        </svg>
-                        <span class="item-number ">{{totalProductNumber}}</span>
-                    </a>
-                    <div class="container" style="float: right;text-align: right">
+                    </form>
 
-                        <!-- Trigger the modal with a button -->
+                    <div class="cart largenav col-sm-1">
+                        <a class="cart-button" data-toggle="modal" data-target="#myModal">
+                            <svg class="cart-svg " width="16 " height="16 " viewBox="0 0 16 16 ">
+                                <path d="M15.32 2.405H4.887C3 2.405 2.46.805 2.46.805L2.257.21C2.208.085 2.083 0 1.946 0H.336C.1 0-.064.24.024.46l.644 1.945L3.11 9.767c.047.137.175.23.32.23h8.418l-.493 1.958H3.768l.002.003c-.017 0-.033-.003-.05-.003-1.06 0-1.92.86-1.92 1.92s.86 1.92 1.92 1.92c.99 0 1.805-.75 1.91-1.712l5.55.076c.12.922.91 1.636 1.867 1.636 1.04 0 1.885-.844 1.885-1.885 0-.866-.584-1.593-1.38-1.814l2.423-8.832c.12-.433-.206-.86-.655-.86 "
+                                    fill="#fff "></path>
+                            </svg>
+                            <span class="item-number ">{{totalProductNumber}}</span>
+                        </a>
+                        <div class="container" style="float: right;text-align: right">
 
-
-                        <!-- Modal -->
-                        <div class="modal fade" id="myModal" role="dialog">
-                            <div class="modal-dialog">
-
-                                <!-- Modal content-->
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        <h4 class="modal-title">Shopping Cart</h4>
-                                    </div>
-                                    <div class="modal-body">
+                            <!-- Trigger the modal with a button -->
 
 
-                                        <div class="shopping-cart">
+                            <!-- Modal -->
+                            <div class="modal fade" id="myModal" role="dialog">
+                                <div class="modal-dialog">
 
-                                            <div class="column-labels">
-                                                <label class="product-image"> </label>
-                                                <label class="product-details"> </label>
-                                                <label class="product_border">Price</label>
-                                                <label class="product-quantity">Quantity</label>
-                                                <label class="product-line-price">Total</label>
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title">Shopping Cart</h4>
+                                        </div>
+                                        <div class="modal-body">
+
+
+                                            <div class="shopping-cart">
+
+                                                <div class="column-labels">
+                                                    <label class="product-image"> </label>
+                                                    <label class="product-details"> </label>
+                                                    <label class="product_border">Price</label>
+                                                    <label class="product-quantity">Quantity</label>
+                                                    <label class="product-line-price">Total</label>
+                                                </div>
+
+                                                <div class="product" ng-repeat="cartProduct in cartList track by $index">
+                                                    <div class="product-image">
+                                                        <img ng-src="{{cartProduct.product.thumbnailImage}}">
+                                                    </div>
+                                                    <div class="product-details">
+                                                        <div class="product-title">{{cartProduct.product.name}} </div>
+
+                                                    </div>
+                                                    <div class="product-price">{{cartProduct.product.salePrice }}</div>
+                                                    <div class="product-quantity">
+                                                        <span> {{cartProduct.productQuantity}}</span>
+
+                                                    </div>
+                                                    <div ng-click="removeFromCart(cartProduct)" class="product-removal">
+                                                        <button class="remove-product">
+                                                            Remove
+                                                        </button>
+                                                    </div>
+                                                    <div class="product-line-price">{{cartProduct.subTotalPrice()}} </div>
+                                                </div>
+
+                                                <div class="totals">
+                                                    <div class="totals-item">
+                                                        <label>Grand Total</label>
+                                                        <div class="totals-value" id="cart-subtotal">{{cartTotal}} </div>
+                                                    </div>
+                                                    <div class="totals-item">
+                                                        <label>Tax (5%)</label>
+                                                        <div class="totals-value" id="cart-tax">{{cartTotal*0.05 | number:0}} </div>
+                                                    </div>
+                                                    <div class="totals-item">
+                                                        <label></label>
+                                                        <div class="totals-value" id="cart-shipping"></div>
+                                                    </div>
+                                                    <div class="totals-item totals-item-total">
+                                                        <label> </label>
+                                                        <div class="totals-value" id="cart-total"></div>
+                                                    </div>
+                                                </div>
+                                                <button class="checkout">Checkout</button>
                                             </div>
-
-                                            <div class="product" ng-repeat="cartProduct in cartList track by $index">
-                                                <div class="product-image">
-                                                    <img ng-src="{{cartProduct.product.thumbnailImage}}">
-                                                </div>
-                                                <div class="product-details">
-                                                    <div class="product-title">{{cartProduct.product.name}} </div>
-
-                                                </div>
-                                                <div class="product-price">{{cartProduct.product.salePrice }}</div>
-                                                <div class="product-quantity">
-                                                    <span> {{cartProduct.productQuantity}}</span>
-
-                                                </div>
-                                                <div ng-click="removeFromCart(cartProduct)" class="product-removal">
-                                                    <button class="remove-product">
-                                                        Remove
-                                                    </button>
-                                                </div>
-                                                <div class="product-line-price">{{cartProduct.subTotalPrice()}} </div>
-                                            </div>
-
-                                            <div class="totals">
-                                                <div class="totals-item">
-                                                    <label>Grand Total</label>
-                                                    <div class="totals-value" id="cart-subtotal">{{cartTotal}} </div>
-                                                </div>
-                                                <div class="totals-item">
-                                                    <label>Tax (5%)</label>
-                                                    <div class="totals-value" id="cart-tax">{{cartTotal*0.05 | number:0}} </div>
-                                                </div>
-                                                <div class="totals-item">
-                                                    <label></label>
-                                                    <div class="totals-value" id="cart-shipping"></div>
-                                                </div>
-                                                <div class="totals-item totals-item-total">
-                                                    <label> </label>
-                                                    <div class="totals-value" id="cart-total"></div>
-                                                </div>
-                                            </div>
-
-                                            <button class="checkout">Checkout</button>
-
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                         </div>
                                     </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                    </div>
                                 </div>
-
                             </div>
                         </div>
-
                     </div>
-
-                </div>
-                <div class="cart largenav col-sm-1 dropdown" ng-controller="SignUpController">
-                    <a class="cart-button" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="fa fa-cogs"></i>Login
-                        <span class="caret"></span>
-                    </a>
-                    <li class="dropdown">
-
-                        <ul id="login-dp" class="dropdown-menu">
-                            <li>
+                    <div class="col-sm-1 w3-container">
+                                <div class="w3-dropdown-click">
+                                  <button onclick="myFunction()" class="cart-button">Login</button>
+                                  <div class="open_userlogin">
+                                  <div id="Demo" class="w3-dropdown-content w3-bar-bl
+                                  ock w3-border">
+                                  <div class="logmod">
+                                        <div class="logmod__wrapper">
+                                          <button class="logmod__close">Close</button>
+                                          <button class="close_userlogin">Close</button>
+                                          <div class="logmod__container">
+                                            <ul class="logmod__tabs">
+                                              <li data-tabtar="lgm-2"><a href="#">Login</a></li>
+                                              <li data-tabtar="lgm-1"><a href="#">Sign Up</a></li>
+                                            </ul>
+                                            <div class="logmod__tab-wrapper">
+                                            <div class="logmod__tab lgm-1" ng-controller="SignUpController">
+                                              <div class="logmod__heading">
+                                                  
+                                                <span class="logmod__heading-subtitle">Enter your personal details <strong>to create an acount</strong></span>
+                                              </div>
+                                              <div class="logmod__form">
+                                                <form accept-charset="utf-8"  class="simform" ng-submit="signUp(user)">
+                                                  <div class="sminputs">
+                                                    <div class="input full">
+                                                      <label class="string optional" >Email*</label>
+                                                      <input class="string optional" ng-model="user.email" maxlength="255"  placeholder="Email" type="email" size="50" />
+                                                    </div>
+                                                  </div>
+                                                  <div class="sminputs">
+                                                    <div class="input string optional">
+                                                      <label class="string optional" >Password *</label>
+                                                      <input class="string optional" ng-model="user.password" maxlength="255"  placeholder="Password" type="text" size="50" />
+                                                    </div>
+                                                    <div class="input string optional">
+                                                      <label class="string optional" >User Name *</label>
+                                                      <input type="text" ng-model="user.username" placeholder="Username">
+                                                    </div>
+                                                  </div>
+                                                  <div class="simform__actions">
+                                                    <input class="sumbit" name="commit" type="submit" value="Create Account" />
+                                                    <span class="simform__actions-sidetext">By creating an account you agree to our <a class="special" href="#" target="_blank" role="link">Terms & Privacy</a></span>
+                                                  </div> 
+                                                </form>
+                                              </div> 
+                                              <div class="logmod__alter">
+                                                <div class="logmod__alter-container">
+                                                  <a href="#" class="connect facebook">
+                                                    <div class="connect__icon">
+                                                      <i class="fa fa-facebook"></i>
+                                                    </div>
+                                                    <div class="connect__context">
+                                                      <span>Create an account with <strong>Facebook</strong></span>
+                                                    </div>
+                                                  </a>
+                                                    
+                                                  <a href="#" class="connect googleplus">
+                                                    <div class="connect__icon">
+                                                      <i class="fa fa-google-plus"></i>
+                                                    </div>
+                                                    <div class="connect__context">
+                                                      <span>Create an account with <strong>Google+</strong></span>
+                                                    </div>
+                                                  </a>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="logmod__tab lgm-2" ng-controller="LoginController">
+                                              <div class="logmod__heading">
+                                                    
+                                                <span class="logmod__heading-subtitle">Enter your email and password <strong>to sign in</strong></span>
+                                              </div> 
+                                              <div class="logmod__form">
+                                                <form accept-charset="utf-8"   class="simform" ng-submit="login(user)">
+                                                  <div class="sminputs">
+                                                    <div class="input full">
+                                                      <label class="string optional" >Email*</label>
+                                                      <input class="string optional" ng-model="user.email" maxlength="255"  placeholder="Email" type="email" size="50" />
+                                                    </div>
+                                                  </div>
+                                                  <div class="sminputs">
+                                                    <div class="input full">
+                                                      <label class="string optional" >Password *</label>
+                                                      <input class="string optional" ng-model="user.password"  maxlength="255"  placeholder="Password" type="password" size="50" />
+                                                                              <span class="hide-password">Show</span>
+                                                    </div>
+                                                  </div>
+                                                  <dir>
+                                                        <p><small>{{error}}</small></p>
+                                                  </dir>
+                                                  <div class="simform__actions">
+                                                    <input class="sumbit" name="commit" type="submit" value="Log In" />
+                                                    <span class="simform__actions-sidetext"><a class="special" role="link" href="#">Forgot your password?<br>Click here</a></span>
+                                                  </div> 
+                                                </form>
+                                              </div> 
+                                              <div class="logmod__alter">
+                                                <div class="logmod__alter-container">
+                                                  <a href="#" class="connect facebook">
+                                                    <div class="connect__icon">
+                                                      <i class="fa fa-facebook"></i>
+                                                    </div>
+                                                    <div class="connect__context">
+                                                      <span>Sign in with <strong>Facebook</strong></span>
+                                                    </div>
+                                                  </a>
+                                                  <a href="#" class="connect googleplus">
+                                                    <div class="connect__icon">
+                                                      <i class="fa fa-google-plus"></i>
+                                                    </div>
+                                                    <div class="connect__context">
+                                                      <span>Sign in with <strong>Google+</strong></span>
+                                                    </div>
+                                                  </a>
+                                                </div>
+                                              </div>
+                                                </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                  
+                                  
+                                  
+                                    </div>
+                                </div>
+                                </div>
+                               
+                              
+                        <!--   <li>
                                 <div class="row">
                                     <div class="col-md-12">
                                         Login via
@@ -234,11 +349,27 @@
                                     </div>
                                 </div>
                             </li>
+                         -->
                         </ul>
-                    </li>
+                        </li>
+
+                    </div>
+                </div>
+                <div>
+                    
+                        <div ng-show="user">
+                                <h1>Welcome {{user.displayName}}</h1>
+                            </div>
+                            
+                            <div ng-hide="user">
+                            </div>
+                            <div ng-controller="AuthCtrl">
+                                <li ng-if="user">
+                                    <a href ng-click="signOut()">Sign Out</a>
+                                </li>
+                            </div>
                 </div>
             </div>
-        </div>
         </div>
         <div id="mySidenav" class="sidenav">
             <div class="container" style="background-color: #2874f0; padding-top: 10px;">
@@ -250,6 +381,8 @@
             <a href="http://clashhacks.in/">Link</a>
             <a href="http://clashhacks.in/">Link</a>
         </div>
+      
+
     </header>
 
     <!--AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA-
@@ -700,37 +833,35 @@
     </footer>
     <!--header-->
 </body>
-
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.0.1/lodash.js" type="text/javascript"></script>
 
-<script src="https://maps.googleapis.com/maps/api/js"></script>
-
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.10/angular.min.js"></script>
 <script src="https://code.angularjs.org/1.6.10/angular-route.js"></script>
-<!-- Firebase -->
-<script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>
-<script>
-    // Initialize Firebase
-    var config = {
-        apiKey: "AIzaSyCvMiAYyOCR9Y71CDZ9kOur_xj8uZwCsO8",
-        authDomain: "teknose-login.firebaseapp.com",
-        databaseURL: "https://teknose-login.firebaseio.com",
-        projectId: "teknose-login",
-        storageBucket: "",
-        messagingSenderId: "199349328664"
-    };
-    firebase.initializeApp(config);
-</script>
-<!-- AngularFire -->
-<script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
 <script data-require="ui-bootstrap@*" data-semver="0.12.1" src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.1.min.js"></script>
 <script src="js/main.js"></script>
 <script src="js/core.js"></script>
 <script src="js/app.js"></script>
 <script src="js/controllers.js"></script>
 <script src="js/services.js"></script>
+<script src="https://maps.google.com/maps/api/js"></script>
+<script src="https://rawgit.com/allenhwkim/angularjs-google-maps/master/build/scripts/ng-map.min.js"></script>
+   <!-- Firebase -->
+   <script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>
 
+   <!-- AngularFire -->
+   <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBkpKxN8jIRnG8ORLHw6JXV5nC0omfit7I",
+    authDomain: "teknose-userlogin.firebaseapp.com",
+    databaseURL: "https://teknose-userlogin.firebaseio.com",
+    projectId: "teknose-userlogin",
+    storageBucket: "teknose-userlogin.appspot.com",
+    messagingSenderId: "164575509705"
+  };
+  firebase.initializeApp(config);
+</script>
 </html>

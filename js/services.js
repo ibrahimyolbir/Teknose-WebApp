@@ -1,4 +1,4 @@
-//var app = angular.module('shopApp');
+var app = angular.module('shopApp');
 
 app.factory('getCategories',['$http', function($http){
 

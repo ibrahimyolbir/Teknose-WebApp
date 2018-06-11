@@ -1,10 +1,15 @@
-<div class="w3-container" id="where" style="padding-bottom:32px;" ng-controller="MapController">
+<div class="w3-container" id="where" style="padding-bottom:32px;" >
   <div class="w3-content" style="max-width:700px">
     <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">WHERE TO FIND US</span></h5>
     <p>Find us at some address at some place.</p>
-        
-    <div id="map"></div>
-    <div id="googleMap" class="w3-sepia" style="width:100%;height:100px;"></div>
+    <h1>GoogleMap-Based App</h1>
+    <hr />
+  
+    <div id="map-container" ng-controller="mapController as vm">
+      <ng-map default-style="false" zoom="9" center="[56.029176, 12.7283901]">
+      </ng-map>
+      <div full-screen-toggle class="custom-control">Full Screen</div>
+    </div>
     <p><span class="w3-tag">FYI!</span> We offer full-service catering for any event, large or small. We understand your needs and we will cater the food to satisfy the biggerst criteria of them all, both look and taste.</p>
     <p><strong>Reserve</strong> a table, ask for today's special or just send us a message:</p>
     <form action="/action_page.php" target="_blank">

@@ -57,16 +57,3 @@ text-align: justify!important;
 }
 
 
-
-#yukari{
-    z-index:100;    
-    position:fixed;
-    bottom:10px;    
-    right:10px;    
-    display:none   
-}
-#yukari_boyut
-{
-    width:50px;    
-    height:50px    
-}

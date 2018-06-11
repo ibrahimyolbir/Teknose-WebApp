@@ -1,36 +1,32 @@
-var app = angular.module('shopApp', ['ngRoute','ui.bootstrap','firebase']);
+var app = angular.module('shopApp', ['ngRoute','ui.bootstrap', "firebase","ngMap"]);
 
 app.config(function($routeProvider,$locationProvider){
     $routeProvider.when('/',{
         templateUrl: 'templates/home.html',
-        controller:'HomeController',
+        controller:'HomeController'
     }).when('/searchResults/:keyword', {
         templateUrl: 'templates/search-results.html',
-        controller:'SearchResultsController',
+        controller:'SearchResultsController'
     }).when('/categoriesResults', {
         templateUrl: 'templates/categories-results.html',
-        controller:'CategoriesResultsController',
+        controller:'CategoriesResultsController'
     }).when('/SearchCategoryResults/:categoryId/:keyword', {
         templateUrl: 'templates/search-results.html',
-        controller:'SearchCategoryResultsController',
+        controller:'SearchCategoryResultsController'
     }).when('/About', {
         templateUrl: 'templates/about.html',
-        controller:'AboutController',
+        controller:'AboutController'
     }).when('/Contact', {
         templateUrl: 'templates/contact.html',
-        controller:'ContactController',
+        controller:'ContactController'
     }).when('/HelpCenter', {
         templateUrl: 'templates/help-center.html',
-        controller:'HelpCenterController',
+        controller:'HelpCenterController'
     }).when('/ProductDetail/:id', {
         templateUrl: 'templates/product-detail.html',
-        controller:'ProductDetailController',
+        controller:'ProductDetailController'
     }).when('/sign-up', {
         templateUrl: 'templates/sign-up.html',
         controller: 'SignUpController'
-    }).when('/login', {
-        templateUrl: 'templates/login.html',
-        controller: 'LoginController'
-    });
-    
+    })
 });
